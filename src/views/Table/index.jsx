@@ -79,6 +79,8 @@ const Table = (props) => {
     export_json_to_excel({
       header: tHeader,
       data,
+      filename: exportName,
+      autoWidth: true,
     })
   }
   const formatJson = (filterVal, jsonData) => {
@@ -118,7 +120,19 @@ const Table = (props) => {
         </Button>
       </div>
       <div className="table-list">
-        {!!tableData.length && (
+        <ProTable
+          className="App"
+          size="small"
+          columns={columns}
+          // defaultData={tableData}
+          rowKey="合同编号"
+          params={reqParams}
+          columnsStateMap={columnsStateMap}
+          onColumnsStateChange={(map) => setColumnsShow(map)}
+          request={requestList}
+          postData={postData}
+        ></ProTable>
+        {/* {!!tableData.length && (
           <ProTable
             className="App"
             size="small"
@@ -131,7 +145,7 @@ const Table = (props) => {
             request={requestList}
             postData={postData}
           ></ProTable>
-        )}
+        )} */}
       </div>
     </TableStyle>
   )
