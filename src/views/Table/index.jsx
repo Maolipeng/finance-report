@@ -120,7 +120,7 @@ const Table = (props) => {
         </Button>
       </div>
       <div className="table-list">
-        <ProTable
+        {/* <ProTable
           className="App"
           size="small"
           columns={columns}
@@ -131,8 +131,8 @@ const Table = (props) => {
           onColumnsStateChange={(map) => setColumnsShow(map)}
           request={requestList}
           postData={postData}
-        ></ProTable>
-        {/* {!!tableData.length && (
+        ></ProTable> */}
+        {!!tableData.length && (
           <ProTable
             className="App"
             size="small"
@@ -145,7 +145,7 @@ const Table = (props) => {
             request={requestList}
             postData={postData}
           ></ProTable>
-        )} */}
+        )}
       </div>
     </TableStyle>
   )
