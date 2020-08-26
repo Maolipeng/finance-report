@@ -4,7 +4,7 @@ export const TableStyle = styled.div`
   width: 100%;
   height: 100%;
   .header {
-    width: 200px;
+    width: 300px;
     margin: 10px auto;
   }
   .upload-container {

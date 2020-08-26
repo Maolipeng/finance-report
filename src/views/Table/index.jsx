@@ -10,7 +10,7 @@ let orginData = []
 let orginColumns = []
 const Table = (props) => {
   const [exportName, setExportName] = useState('export-list')
-  const [tableData, setTableData] = useState([])
+  const [tableData, setTableData] = useState(null)
   const [columns, setColumns] = useState([])
   const [reqParams, setReqParams] = useState('')
   const [columnsStateMap, setColumnsStateMap] = useState({})
@@ -100,7 +100,7 @@ const Table = (props) => {
   }
   return (
     <TableStyle>
-      <h1 className="header">报表工具</h1>
+      <h1 className="header">Report Excel Tool</h1>
       <div className="upload-container">
         <Upload onSuccess={uploadSuccessFn} beforeUpload={beforeUpload} />
       </div>
@@ -113,30 +113,18 @@ const Table = (props) => {
         />
         <Button
           type="primary"
-          disabled={!tableData.length}
+          disabled={!(tableData && tableData.length)}
           onClick={exportExcel}
         >
           导出Excel
         </Button>
       </div>
       <div className="table-list">
-        {/* <ProTable
-          className="App"
-          size="small"
-          columns={columns}
-          // defaultData={tableData}
-          rowKey="合同编号"
-          params={reqParams}
-          columnsStateMap={columnsStateMap}
-          onColumnsStateChange={(map) => setColumnsShow(map)}
-          request={requestList}
-          postData={postData}
-        ></ProTable> */}
-        {!!tableData.length && (
+        {tableData && (
           <ProTable
             className="App"
             size="small"
-            columns={columns}
+            columns={tableData && columns}
             // defaultData={tableData}
             rowKey="合同编号"
             params={reqParams}
