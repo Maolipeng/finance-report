@@ -21,7 +21,7 @@ const Home = () => {
 
   return (
     <div>
-      这是home页面
+      这是一个测试页面
       <h1>{store.getState().test.num}</h1>
       <h1>{counter}</h1>
       <div>
