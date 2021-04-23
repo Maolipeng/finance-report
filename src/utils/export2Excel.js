@@ -14,9 +14,10 @@ function generateArray(table) {
       var colspan = cell.getAttribute('colspan')
       var rowspan = cell.getAttribute('rowspan')
       var cellValue = cell.innerText
-      if (cellValue !== '' && cellValue == +cellValue) cellValue = +cellValue
+      if (cellValue !== '' && cellValue === +cellValue) cellValue = +cellValue
 
       //Skip ranges
+      // eslint-disable-next-line
       ranges.forEach(function (range) {
         if (
           R >= range.s.r &&
@@ -73,8 +74,8 @@ function sheet_from_array_of_arrays(data, opts) {
       r: 0,
     },
   }
-  for (var R = 0; R != data.length; ++R) {
-    for (var C = 0; C != data[R].length; ++C) {
+  for (var R = 0; R !== data.length; ++R) {
+    for (var C = 0; C !== data[R].length; ++C) {
       if (range.s.r > R) range.s.r = R
       if (range.s.c > C) range.s.c = C
       if (range.e.r < R) range.e.r = R
@@ -112,7 +113,7 @@ function Workbook() {
 function s2ab(s) {
   var buf = new ArrayBuffer(s.length)
   var view = new Uint8Array(buf)
-  for (var i = 0; i != s.length; ++i) view[i] = s.charCodeAt(i) & 0xff
+  for (var i = 0; i !== s.length; ++i) view[i] = s.charCodeAt(i) & 0xff
   return buf
 }
 
@@ -189,7 +190,7 @@ export function export_json_to_excel({
             wch: 10,
           }
         } else if (val.toString().charCodeAt(0) > 255) {
-        /*再判断是否为中文*/
+          /*再判断是否为中文*/
           return {
             wch: val.toString().length * 2,
           }

@@ -7,8 +7,8 @@ import { UploadStyle } from './style.js'
 
 const Upload = (props) => {
   const { beforeUpload, onSuccess } = props
-  const [fileList, setFileList] = useState([])
-  const [excelData, setExcelData] = useState({})
+  const [, setFileList] = useState([])
+  const [, setExcelData] = useState({})
   const inputFileRef = useRef(null)
   const handleClick = () => {
     console.log('inputFileRef.current.files', inputFileRef.current.files)

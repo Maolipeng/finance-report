@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react'
-import ProTable, { ProColumns } from '@ant-design/pro-table'
+import React, { useState } from 'react'
+import ProTable from '@ant-design/pro-table'
 import { Button, Input } from 'antd'
 import Upload from '@/components/Upload'
 import { export_json_to_excel } from '@/utils/export2Excel'
@@ -7,12 +7,13 @@ import { parseTime } from '@/utils'
 
 import { TableStyle } from './style.js'
 let orginData = []
+// eslint-disable-next-line
 let orginColumns = []
 const Table = (props) => {
   const [exportName, setExportName] = useState('export-list')
   const [tableData, setTableData] = useState(null)
   const [columns, setColumns] = useState([])
-  const [reqParams, setReqParams] = useState('')
+  const [reqParams] = useState('')
   const [columnsStateMap, setColumnsStateMap] = useState({})
   const uploadSuccessFn = (excelData) => {
     console.log('excelData1', excelData)
