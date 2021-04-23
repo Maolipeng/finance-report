@@ -18,12 +18,12 @@ const DEPLOY_CONFIG = {
   //   buildPathServer: '/root/deep-real-1.0/dist',
   //
   // },
-  report: {
-    host: '35.220.236.194',
-    port: '22',
-    username: 'gcp',
-    privateKey: fs.readFileSync('/Users/maolipeng/.ssh/gcp-report'),
-    buildPathServer: '/www/report-dist/dist',
-  },
+  // report: {
+  //   host: '35.220.236.194',
+  //   port: '22',
+  //   username: 'gcp',
+  //   privateKey: fs.readFileSync('/Users/maolipeng/.ssh/gcp-report'),
+  //   buildPathServer: '/www/report-dist/dist',
+  // },
 }
 module.exports = { DEPLOY_CONFIG }

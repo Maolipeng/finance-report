@@ -1,6 +1,14 @@
 language: node_js
 node_js:
-  - 12
-branchs:
-  only:
-    - master
+  - '12'
+services:
+  - docker
+
+before_install:
+  - npm install
+
+script:
+  - npm run build
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build -t pea3nut/finance-report:latest
+  - docker push maolipeng/finance-report:latest
