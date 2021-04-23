@@ -10,5 +10,5 @@ before_install:
 script:
   - yarn run build
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password "$DOCKER_PASSWORD"
-  - docker build -t pea3nut/finance-report:latest
+  - docker build ./ -t maolipeng/finance-report:latest
   - docker push maolipeng/finance-report:latest
